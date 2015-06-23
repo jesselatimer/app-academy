@@ -1,2 +1,2 @@
 # app-academy
-App Academy coursework
+App Academy Coursework
