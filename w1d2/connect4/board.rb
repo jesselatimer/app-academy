@@ -82,7 +82,7 @@ class Board
       row.each do |spot|
         print "o ".red if spot == :red
         print "o ".black if spot == :black
-        print "  " if spot == nil
+        print ". ".white if spot == nil
       end
       puts
     end
