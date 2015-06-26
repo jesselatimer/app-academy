@@ -1,8 +1,7 @@
 def range(start, finish)
   return [] if finish <= start + 1
 
-  arr = range(start, finish - 1)
-  arr << finish - 1
+  range(start, finish - 1) << finish - 1
 end
 
 def sum_recursive(array)
@@ -39,10 +38,7 @@ end
 class Array
 
   def deep_dup
-    return self.dup if self.none? { |el| el.is_a?(Array) }
-
-    arr = self.map { |el| el.is_a?(Array) ? el.deep_dup : el }
-    arr.dup
+    self.map { |el| el.is_a?(Array) ? el.deep_dup : el }
   end
 end
 

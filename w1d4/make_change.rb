@@ -1,23 +1,14 @@
-# def make_change(change, coin_types = [25, 10, 5, 1])
-#   return [] if change < 1
-#
-#   coin_type = coin_types.find { |coin| coin <= change }
-#
-#   coins = make_change(change - coin_type)
-#   coins.unshift(coin_type)
-# end
-
-def make_change(change, coin_types = [25, 10, 5, 1])
+def make_change(change, coins = [25, 10, 5, 1]) # Defaults US coins.
   return [] if change < 1
 
+  coins = coins.sort.reverse
+
   best ||= []
-  coin_types.each do |coin|
+  coins.each_with_index do |coin, used_coins|
     next if change < coin
-    current = [coin] + make_change(change - coin, coin_types)
+    current = [coin] + make_change(change - coin, coins.drop(used_coins))
     best = current if current.length < best.length || best.empty?
   end
 
   best
 end
-
-p make_change(123)
