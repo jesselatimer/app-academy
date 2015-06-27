@@ -1,4 +1,3 @@
-
 class WordChainer
 
   def initialize(dictionary)
