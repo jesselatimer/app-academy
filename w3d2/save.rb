@@ -1,11 +1,5 @@
 module Saveable
 
-  TABLE_NAMES = {
-    "User" => "users",
-    "Question" => "questions",
-    "Reply" => "replies"
-    }
-
   def save
     ivar_names = instance_variables.drop(1).map { |x| x.to_s[1..-1] }
     ivars = instance_variables.drop(1).map do |el|
