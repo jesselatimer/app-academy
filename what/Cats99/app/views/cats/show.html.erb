@@ -1,0 +1,55 @@
+<h1><%= @cat.name %></h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td><%=@cat[:name]%></td>
+  </tr>
+  <tr>
+    <td>Birth Date</td>
+    <td><%=@cat[:birth_date].to_s%></td>
+  </tr>
+  <tr>
+    <td>Sex</td>
+    <td><%=@cat[:sex].upcase%></td>
+  </tr>
+  <tr>
+    <td>Color</td>
+    <td><%=@cat[:color].capitalize%></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><%=@cat[:description]%></td>
+  </tr>
+
+</table>
+
+<br>
+
+<h2>Rental Requests</h2>
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <%@cat.rental_requests.order(:start_date).each do |request|%>
+  <tr>
+    <td><%= request.status %></td>
+    <td><%= request.start_date %></td>
+    <td><%= request.end_date %></td>
+    <td><%= (button_to "Approve", cat_rental_request_approve_path(request)) if request.pending? %></td>
+    <td><%= (button_to "Deny", cat_rental_request_deny_path(request)) if request.pending? %></td>
+  </tr>
+  <% end %>
+</table>
+<br>
+
+<ul>
+  <li><%= link_to "Edit Cat", edit_cat_url(@cat) %></li>
+  <li><%= link_to "Delete Cat", cat_url(@cat), method: :delete %></li>
+  <li><%= link_to "All Cats", cats_url %></li>
+  <li><%= link_to "Rent a Cat!", new_cat_rental_request_url %></li>
+</ul>

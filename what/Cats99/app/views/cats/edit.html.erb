@@ -1,0 +1,5 @@
+<h1>Edit A Cat!</h1>
+
+<%= render partial: "form", locals: {cat: @cat} %>
+
+<%= link_to "Back to the Cat", cat_url(@cat) %>
