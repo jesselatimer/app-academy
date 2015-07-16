@@ -1,0 +1,15 @@
+<h1>Cats upon cats!</h1>
+
+<ul>
+  <% @cats.each do |cat| %>
+    <li><%= link_to cat.name, cat_url(cat) %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <li><%= link_to "Create Cat", new_cat_url %></li>
+  <li><%= link_to "Request an Appointment!", new_cat_rental_request_url %></li>
+  <% unless current_user %>
+    <li><%= link_to "Create New User", new_user_url %></li>
+  <% end %>
+</ul>
