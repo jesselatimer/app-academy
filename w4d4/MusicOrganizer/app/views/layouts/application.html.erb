@@ -10,5 +10,9 @@
 
 <%= yield %>
 
+  <p>Current user: <%= current_user.email if logged_in? %></p>
+  <p><%= link_to "New User", new_user_url %></p>
+  <p><%= link_to "Sign In", new_session_url %></p>
+
 </body>
 </html>

@@ -1,0 +1,19 @@
+<h1>Create a new user</h1>
+
+<ul>
+  <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+
+<form action="/users" method="post">
+  <%= auth_token %>
+
+  <label for="email">Email</label>
+  <input type="email" name="user[email]" value="<%= @user.email %>" id="email">
+
+  <label for="password">Password</label>
+  <input type="password" name="user[password]" id="password">
+
+  <input type="submit">
+</form>
