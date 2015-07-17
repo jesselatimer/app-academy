@@ -1,5 +1,5 @@
 class BandsController < ApplicationController
-  before_action :require_logged_in, except: :index
+  before_action :require_logged_in
 
   def index
     @bands = Band.all
