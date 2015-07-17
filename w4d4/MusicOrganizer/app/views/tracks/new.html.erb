@@ -1,0 +1,32 @@
+<h1>New Track!</h1>
+
+<form action="/tracks" method="post">
+  <%= auth_token %>
+
+  <label for="track_album">Album</label>
+  <select name="track[album_id]" id="track_album">
+    <% @albums.each do |album| %>
+      <option value="<%= album.id %>"
+        <%= " selected" if album.id == params[:album_id].to_i %>>
+        <%= album.title %>
+      </option>
+    <% end %>
+  </select>
+
+  <label for="track_title">Track Title</label>
+  <input type="text"
+         name="track[title]"
+         value="<%= @track.title %>"
+         id="track_title">
+
+  <label for="album_type">Bonus or Regular Track?</label>
+  <select name="track[studio]">
+    <option value="REGULAR">Regular</option>
+    <option value="BONUS">Bonus</option>
+  </select>
+
+  <label for="lyrics">Lyrics (optional)</label>
+  <textarea name="track[lyrics]" id="lyrics"><%= @track.lyrics %></textarea>
+
+  <input type="submit">
+</form>

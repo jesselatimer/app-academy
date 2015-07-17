@@ -1,0 +1,11 @@
+<h1>Track: <%= @track.title %></h1>
+
+<p>Yup, this sure is <%= @track.title %>.
+   I'm on the album <%= link_to @track.album.title, album_url(@track.album) %>.
+   I was recorded by <%= link_to @track.band.name, band_url(@track.band) %>.
+   I'm a <%= @track.bonus.downcase %> track.</p>
+<h3>Lyrics</h3>
+<p><%= @track.lyrics %></p>
+
+<%= button_to "Edit Track", edit_track_url(@track), method: :get %>
+<%= delete_track %>

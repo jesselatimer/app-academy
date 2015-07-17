@@ -1,0 +1,27 @@
+<h1>Edit <%= @album.title %>!</h1>
+
+<form action="/albums/<%= @album.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= auth_token %>
+
+  <label for="album_band">Band</label>
+  <select name="album[band_id]">
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>"<%= " selected" if band.name == @album.band.name %>><%= band.name %></option>
+    <% end %>
+  </select>
+
+  <label for="album_title">Album Title</label>
+  <input type="text"
+         name="album[title]"
+         value="<%= @album.title %>"
+         id="album_title">
+
+  <label for="album_type">Studio or Live?</label>
+  <select name="album[studio]">
+    <option value="STUDIO"<%= " selected" if @album.studio == "STUDIO" %>>Studio</option>
+    <option value="LIVE"<%= " selected" if @album.studio == "LIVE" %>>Live</option>
+  </select>
+
+  <input type="submit">
+</form>

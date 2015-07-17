@@ -12,7 +12,7 @@
 #
 
 class Track < ActiveRecord::Base
-  validates :title, :bonus, :album
+  validates :title, :bonus, :album, presence: true
 
   belongs_to(
     :album,

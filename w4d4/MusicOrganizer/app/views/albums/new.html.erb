@@ -1,0 +1,28 @@
+<h1>New Album!</h1>
+
+<form action="/albums" method="post">
+  <%= auth_token %>
+
+  <label for="album_band">Band</label>
+  <select name="album[band_id]" id="album_band">
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>"<%= " selected" if band.id == params[:band_id].to_i %>>
+      <%= band.name %>
+    </option>
+    <% end %>
+  </select>
+
+  <label for="album_title">Album Title</label>
+  <input type="text"
+         name="album[title]"
+         value="<%= @album.title %>"
+         id="album_title">
+
+  <label for="album_type">Studio or Live?</label>
+  <select name="album[studio]">
+    <option value="STUDIO">Studio</option>
+    <option value="LIVE">Live</option>
+  </select>
+
+  <input type="submit">
+</form>

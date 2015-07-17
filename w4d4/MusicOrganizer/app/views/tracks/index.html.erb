@@ -1,0 +1,9 @@
+<h1>All Tracks</h1>
+
+<ul>
+  <% @tracks.each do |track| %>
+    <li><%= link_to track.title, track_url(track) %>
+      (<%= link_to track.album.title, album_url(track.album) %>)
+      (<%= link_to track.band.name, band_url(track.band) %>)</li>
+  <% end %>
+</ul>

@@ -10,9 +10,18 @@
 
 <%= yield %>
 
-  <p>Current user: <%= current_user.email if logged_in? %></p>
-  <p><%= link_to "New User", new_user_url %></p>
-  <p><%= link_to "Sign In", new_session_url %></p>
-
+  <div style="position: fixed; right: 20px; top: 20px; text-align: right;">
+    <h2>Musicr</h2>
+    <% if logged_in? %>
+      <p>Current user: <%= current_user.email %> |
+         <%= link_to "Sign Out", session_url, method: :delete %></p>
+    <% else %>
+      <p><%= link_to "Create a new account", new_user_url %> |
+         <%= link_to "Sign In", new_session_url %></p>
+    <% end %>
+    <p><%= link_to "All Bands", bands_url %> |
+       <%= link_to "All Albums", albums_url %> |
+       <%= link_to "All Tracks", tracks_url %></p>
+  </div>
 </body>
 </html>
