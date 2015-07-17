@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def current_user
-    @user ||= User.find_by(session_token: session[:session_token])
+    @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
   def logged_in?
@@ -26,5 +26,11 @@ class ApplicationController < ActionController::Base
   private
   def user_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def require_logged_in
+    unless logged_in?
+      redirect_to new_session_url
+    end
   end
 end

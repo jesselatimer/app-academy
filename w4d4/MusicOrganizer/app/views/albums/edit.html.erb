@@ -10,18 +10,24 @@
       <option value="<%= band.id %>"<%= " selected" if band.name == @album.band.name %>><%= band.name %></option>
     <% end %>
   </select>
+  <br><br>
 
   <label for="album_title">Album Title</label>
   <input type="text"
          name="album[title]"
          value="<%= @album.title %>"
          id="album_title">
+         <br><br>
 
-  <label for="album_type">Studio or Live?</label>
-  <select name="album[studio]">
-    <option value="STUDIO"<%= " selected" if @album.studio == "STUDIO" %>>Studio</option>
-    <option value="LIVE"<%= " selected" if @album.studio == "LIVE" %>>Live</option>
-  </select>
+   <label for="studio">Studio</label>
+   <input type="radio" name="album[studio]" value="STUDIO" id="studio"
+   <%= " checked" if @album.studio == "STUDIO" %>>
+   <br>
+
+   <label for="live">Live</label>
+   <input type="radio" name="album[studio]" value="LIVE" id="live"
+   <%= " checked" if @album.studio == "LIVE" %>>
+   <br><br>
 
   <input type="submit">
 </form>

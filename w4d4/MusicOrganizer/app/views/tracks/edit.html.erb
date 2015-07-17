@@ -13,21 +13,28 @@
       </option>
     <% end %>
   </select>
+  <br><br>
 
   <label for="track_title">Track Title</label>
   <input type="text"
          name="track[title]"
          value="<%= @track.title %>"
          id="track_title">
+         <br><br>
 
-  <label for="album_type">Bonus or Regular Track?</label>
-  <select name="track[studio]">
-    <option value="REGULAR">Regular</option>
-    <option value="BONUS">Bonus</option>
-  </select>
+   <label for="regular">Regular Track</label>
+   <input type="radio" name="track[bonus]" value="REGULAR" id="regular"
+   <%= " checked" if @track.bonus == "REGULAR" %>>
+   <br>
+
+   <label for="bonus">Bonus Track</label>
+   <input type="radio" name="track[bonus]" value="BONUS" id="bonus"
+   <%= " checked" if @track.bonus == "BONUS" %>>
+   <br><br>
 
   <label for="lyrics">Lyrics (optional)</label>
   <textarea name="track[lyrics]" id="lyrics"><%= @track.lyrics %></textarea>
+  <br><br>
 
   <input type="submit">
 </form>

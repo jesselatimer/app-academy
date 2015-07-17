@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_action :require_logged_in, except: :index
+
   def index
     @albums = Album.all
     render :index
