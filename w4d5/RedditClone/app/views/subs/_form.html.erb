@@ -1,0 +1,9 @@
+<%= auth_token %>
+
+<label for="sub_title">Subtitle</label>
+<input type="text" name="sub[title]" value="<%=@sub.title%>" id="sub_title" >
+
+<label for="description">Description of sub</label>
+<textarea id="description" name="sub[description]"><%= @sub.description %></textarea>
+
+<input type="submit">

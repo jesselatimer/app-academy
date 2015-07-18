@@ -1,0 +1,16 @@
+<h1>Sign in to your RedditClone account</h1>
+<h3>to start redditcloning cats.</h3>
+
+<form action="/session" method="post">
+  <%= auth_token %>
+
+  <label for="username">Username</label>
+  <input type="text"
+         name="user[username]"
+         id="username">
+
+  <label for="password">Password</label>
+  <input type="password" name="user[password]" id="password">
+
+  <input type="submit">
+</form>

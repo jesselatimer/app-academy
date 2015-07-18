@@ -1,0 +1,11 @@
+<h1>RedditClone</h1>
+<h2>for all your redditting needs</h2>
+<h3>but a little worse</h3>
+
+<ul>
+  <% @subs.each do |sub| %>
+    <li><%= link_to sub.title, sub_url(sub) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create sub", new_sub_url %>

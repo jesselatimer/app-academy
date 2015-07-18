@@ -1,0 +1,33 @@
+<h1>Subreddit: <%= @sub.title %></h1>
+
+<p><%= @sub.description %></p>
+
+<h3>Posts</h3>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, post_url(post) %></li>
+  <% end %>
+</ul>
+
+<h3>Moderators:</h3>
+<ul>
+  <% @mods.each do |mod| %>
+    <li><%= mod.username %>
+      <!-- TODO This is literally the worst thing. Change it. -->
+     <%= button_to "Delete mod", sub_mod_sub_url(sub_id: @sub.id, id: ModSub.find_by(mod_id: mod.id, sub_id: @sub.id)), method: :delete if is_mod?(@sub) %></li>
+  <% end %>
+</ul>
+
+
+  <%= link_to "Back to all subs", subs_url %>
+  <br>
+  <%= link_to "New Post", new_sub_post_url(@sub) %>
+  <br>
+  
+<% if is_mod?(@sub)%>
+  <%= link_to "New Mod", new_sub_mod_sub_url(@sub) %>
+  <br>
+  <%= link_to "Edit Sub", edit_sub_url(@sub) %>
+  <br>
+  <%= button_to "Delete Sub", sub_url(@sub), method: :delete %>
+<%end%>

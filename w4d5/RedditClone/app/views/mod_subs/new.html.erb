@@ -1,0 +1,11 @@
+<h1>Add a moderator for <%= @sub.title %></h1>
+
+<form action="<%= sub_mod_subs_url(@sub) %>" method="post">
+  <%= auth_token %>
+
+  <label for="mod_sub_username">Username to make mod</label>
+  <input type="text" name="mod_sub[username]">
+
+  <input type="submit">
+
+</form>

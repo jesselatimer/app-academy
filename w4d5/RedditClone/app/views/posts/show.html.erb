@@ -1,0 +1,24 @@
+<h1>Post <%= @post.title %> </h1>
+<h3>By <%= @post.author.username %></h3>
+
+<p>
+  <%= @post.content if @post.content %>
+  <%= link_to @post.url, @post.url if @post.url %>
+</p>
+
+<%= link_to "Make comment", new_post_comment_url(@post) %>
+<br>
+
+<% if current_user && is_author?(@post)%>
+  <%= link_to "Edit Post", edit_post_url(@post) %>
+  <%= button_to "Delete Post", post_url(@post), method: :delete %>
+<%end%>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li style="border: 1px black solid; margin: 5px; padding: 15px;"><%= comment.content %><br>
+    By the redditcloner <%= comment.author.username %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to subs", subs_url %>
