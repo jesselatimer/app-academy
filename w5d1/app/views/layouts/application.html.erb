@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DreamsApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+
+
+<%= yield %>
+
+<% if current_user %>
+  <p>Current user: <%= current_user.username %> |
+  <%= button_to "Sign out", session_url, method: :delete, id: "signout" %></p>
+  <p><%= link_to "New Goal", new_goal_url %> |
+  <%= link_to "All Goals", goals_url %></p>
+
+<% else %>
+  <%= link_to "Sign up", new_user_url %> |
+  <%= link_to "Sign in", new_session_url %>
+<% end %>
+
+</body>
+</html>

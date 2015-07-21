@@ -1,0 +1,27 @@
+<h1>Update Goal</h1>
+
+<form action="<%= goal_url(@goal) %>" method="post">
+  <%= auth_token %>
+  <%= patch_method %>
+
+  <label>Goal
+    <textarea name="goal[text]"><%= @goal.text %></textarea>
+  </label>
+  <br>
+
+  <input type="hidden" name="goal[privateer]" value="true">
+  <label>Public?
+    <input type="checkbox" name="goal[privateer]" value="false"
+    <%= "checked" unless @goal.privateer? %>>
+  </label>
+  <br>
+
+  <input type="hidden" name="goal[completed]" value="false">
+  <label>Completed?
+    <input type="checkbox" name="goal[completed]" value="true"
+    <%= "checked" if @goal.completed? %>>
+  </label>
+  <br>
+
+  <input type="submit" value="Update Goal" id="submit">
+</form>
