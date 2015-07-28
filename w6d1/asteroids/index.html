@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asteroids GALORE</title>
+</head>
+<body>
+  <h1 style="text-align: center;">Asteroids!</h1>
+  <div style="margin: auto; width: 90%;">
+    <canvas id="game-canvas" style="background-color: black;"></canvas>
+  </div>
+  <script src="keymaster.js"></script>
+  <script src="utils.js"></script>
+  <script src="movingObject.js"></script>
+  <script src="asteroid.js"></script>
+  <script src="bullet.js"></script>
+  <script src="ship.js"></script>
+  <script src="game.js"></script>
+  <script src="gameView.js"></script>
+  <script type="text/javascript">
+    var canvasEl = document.getElementById("game-canvas");
+    canvasEl.height = window.innerHeight * .9;
+    canvasEl.width = window.innerWidth * .9;
+    var game = new Asteroids.Game(canvasEl.width, canvasEl.height, 55);
+    var img = new Image();
+    img.src = 'http://vignette1.wikia.nocookie.net/egamia/images/4/4e/Game_Over_Screen.jpg/revision/latest?cb=20140718104227';
+    new Asteroids.GameView(game, canvasEl, img).start();
+  </script>
+
+</body>
+</html>
