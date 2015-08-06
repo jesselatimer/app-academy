@@ -1,0 +1,17 @@
+<h3>New/Edit Post</h3>
+
+<form>
+
+  <label>Title
+    <input type="text" name="post[title]" value="<%= post.escape("title") %>">
+  </label>
+
+  <label>Body
+    <input type="text" name="post[body]" value="<%= post.escape("body") %>">
+  </label>
+
+  <input type="submit" value="Post Post">
+
+</form>
+
+<a href="#">Close form</a>

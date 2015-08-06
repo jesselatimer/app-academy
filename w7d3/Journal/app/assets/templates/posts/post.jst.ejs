@@ -1,0 +1,10 @@
+<h2 class="editable"><%= post.escape("title") %></h2>
+
+<p class="editable">
+  <%= post.escape("body") %>
+</p>
+
+<h3><a href="#posts/new">New/Edit Post</a> |
+<a href="#posts/<%= post.id %>/edit">Edit Post</a> |
+<a href="#">Close Post</a></h3>
+<button class="delete-button">Delete Post</button>

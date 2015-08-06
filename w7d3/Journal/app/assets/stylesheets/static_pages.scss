@@ -1,0 +1,18 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sidebar, #content {
+  float: left;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+#sidebar {
+  width: 30%;
+  border-right: 3px black solid;
+}
+
+#content {
+  width: 70%;
+}

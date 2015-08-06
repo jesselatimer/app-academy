@@ -1,0 +1,15 @@
+<h1><%= pokemon.escape("name") %></h1>
+
+<img src="<%= pokemon.escape("image_url") %>">
+
+<ul class="attributes">
+  <% _.each(pokemon.attributes, function (val, key) { %>
+    <% if (['attack', 'defense', 'poke_type', 'moves'].indexOf(key) > -1) { %>
+      <li><%= key %>: <%= _.escape(val) %></li>
+    <% } %>
+  <% }) %>
+</ul>
+
+<h3>Toys: </h3>
+<ul class="toys">
+</ul>
