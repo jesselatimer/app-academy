@@ -1,0 +1,98 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+button {
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 20px;
+  border: 0;
+  padding: 4px;
+  padding: 5px;
+}
+
+ a {
+   text-decoration: none;
+ }
+
+ h2 {
+   font-size: 40px;
+   margin: 0;
+   padding: 20px;
+   text-align: left;
+   padding-left: 0;
+   color: darkblue;
+ }
+
+ body {
+   text-align: center;
+   margin: 0;
+   font-family: 'PT Sans', sans-serif;
+ }
+
+ li, ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+ }
+
+ ul.entries a {
+   font-size: 20px;
+ }
+
+ li {
+   margin-left: 10px;
+   height: 50px;
+   overflow: hidden;
+ }
+#content {
+  background-color: aliceblue;
+  width: 70%;
+  min-width: 500px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  text-align: left;
+  font-size: 30px;
+}
+
+.header {
+  display: block;
+  background-color: darksalmon;
+  margin: 0;
+  padding: 20px;
+  color: white;
+  font-size: 60px;
+}
+
+.header:hover {
+  background-color: salmon;
+  text-shadow: 1px 1px 1px gray;
+}
+
+.new-feed {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  background-color: lightblue;
+  color: white;
+  border: 1px solid lightgray;
+  border-top: 0;
+  font-size: 25px;
+}
+
+.new-feed:hover {
+  background-color: darkblue;
+}
