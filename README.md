@@ -1,2 +1,3 @@
-# app-academy
-App Academy Coursework
+# App Academy Coursework
+
+a/A Coursework by Jesse Latimer
